@@ -1,0 +1,11 @@
+{    
+    "basename"       : "FF",
+    "candidates"     : 2, 
+    "pipeline_cores" : 1, 
+    "md_executable"  : "/usr/bin/gmx",  
+    "md_pre_exec"    : "grompp ", 
+    "md_args"        : "mdrun", 
+    "an_executable"  : "python",
+    "an_args"        : "/home/scm177/RCT/pace/examples/dummy_example/force_outcome.py 0",
+    "cycle_max"      : 3
+}

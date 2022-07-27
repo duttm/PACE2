@@ -1,0 +1,15 @@
+{    
+    "basename"          : "FF",
+    "candidates"        : 1,
+    "cycle_max"         : 5, 
+    "pipeline_cores"    : 12, 
+    "pre_md_executable" : "gmx_mpi",
+    "pre_md_pre_exec"   : "module load gromacs/2018",
+    "pre_md_args"       : "grompp -f FF.mdp -c FF.gro -o sys.tpr -p FF.top",
+    "md_executable"     : "gmx_mpi",  
+    "md_pre_exec"       : "module load gromacs/2018", 
+    "md_args"           : "mdrun -s sys.tpr -deffnm sys -c outcrd.gro", 
+    "an_executable"     : "python",
+    "an_args"           : "/home/scm177/RCT/pace/examples/dummy_example/force_outcome.py 1",
+    "an_pre_exec"       : "module load python"
+}

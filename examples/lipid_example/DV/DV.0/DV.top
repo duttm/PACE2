@@ -1,0 +1,24 @@
+#include "martini_v2.2.itp"
+#include "DV.itp"
+
+[ system ]
+; name
+Bicelle
+
+[ molecules ]
+; name        number
+
+DEN           162
+DPPC          2877
+W             1564
+W             13447
+W           15120
+Cl               1296
+W            10876
+W            23433
+W            8288
+W             916589
+
+
+
+

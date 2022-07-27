@@ -1,0 +1,77 @@
+; RUN CONTROL PARAMETERS
+integrator               = md ; checked
+dt                       = 0.010 ; should be 20 as per lee and larson
+nsteps                   = 5000 ; vary
+;nsteps                   = 60
+;define                   = -DPOSRES ; vary as per need
+
+; OUTPUT CONTROL PARAMETERS
+nstxout                  = 12000000
+nstvout                  = 12000000
+nstfout                  = 0
+nstlog                   = 1000
+nstenergy                = 1000
+
+nstxtcout                = 400000
+compressed-x-precision   = 1000	
+
+
+; NEIGHBOR SEARCHING PARAMETERS
+cutoff-scheme     	 = Verlet ; checked
+nstlist                  = 20 ; increased and checked
+ns-type                  = grid ; checked
+pbc                      = xyz ; checked
+rlist                    = 1.4 
+verlet-buffer-tolerance  = 0.005
+
+
+
+; ELECTROSTATICS PARAMETERS
+;coulombtype	    = PME		; Particle Mesh Ewald for long-range electrostatics
+;pme_order	    = 4		    ; cubic interpolation
+;fourierspacing	= 0.25		; grid spacing for FFT
+;rcoulomb-switch		 = 0.0  
+;rcoulomb                 = 1.2
+;epsilon-r                =  15 ; checked , please make sure to retain e = 15 for standard water in martini
+
+; Lets ignore long range electrostatics
+
+coulombtype              = reaction-field 
+rcoulomb-switch		 = 0.0 
+rcoulomb                 = 1.2
+epsilon_r                = 15	; 2.5 (with polarizable water)
+epsilon_rf               = 0
+
+; VAN DER WAALS (vdW) PARAMETERS
+vdw-modifier             = Force-switch ; checked 
+rvdw-switch              = 0.9 ; checked
+rvdw                     = 1.2 ; checked 
+
+
+; TEMPERATURE COUPLING PARAMETERS
+tcoupl                   = v-rescale ; checked 
+tc-grps                  = DEN DPPC W Cl 
+tau-t                    = 1.0 1.0 1.0 1.0 
+ref-t                    = 323 323 323 323
+
+; PRESSURE COUPLING PARAMETERS
+
+pcoupl                   = berendsen
+pcoupltype               = isotropic
+tau-p                    = 10.0
+compressibility          = 5e-6 
+ref-p                    = 1.01325
+
+gen-vel                  = no
+gen-temp                 = 323
+gen-seed                 = -1
+
+; MARTINI and CONSTRAINTS 
+; for ring systems and stiff bonds constraints are defined
+; which are best handled using Lincs. 
+
+constraints              = none 
+constraint_algorithm     = Lincs
+
+
+
