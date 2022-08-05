@@ -76,20 +76,13 @@ class Candidate:
         basename = self.candidate_specifications['basename']
         sysname = basename + "." + str(self.cid)
         
-        c_head_extension = self.candidate_specifications['chead_files']    
-       
-        c_head_initial = basename + "/" + sysname + "/"
+        print('c_head is', self.candidate_specifications['chead_files'])    
         
-        c_head = []
-        
-        for i in range(len(c_head_extension)):
-            c_head.append(c_head_initial + c_head_extension[i])
-        
-#        c_head = [basename + "/" + sysname + "/" + basename + ".gro",
-#                  basename + "/" + sysname + "/" + basename + ".itp",
-#                  basename + "/" + sysname + "/" + basename + ".mdp",
-#                  basename + "/" + sysname + "/" + basename + ".top",
-#                  basename + "/" + sysname + "/" + "martini_v2.2.itp"]
+        c_head = [basename + "/" + sysname + "/" + basename + ".gro",
+                  basename + "/" + sysname + "/" + basename + ".itp",
+                  basename + "/" + sysname + "/" + basename + ".mdp",
+                  basename + "/" + sysname + "/" + basename + ".top",
+                  basename + "/" + sysname + "/" + "martini_v2.2.itp"]
                         
 
         # Create pre md stage

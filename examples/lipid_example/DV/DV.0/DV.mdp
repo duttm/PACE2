@@ -1,7 +1,7 @@
 ; RUN CONTROL PARAMETERS
 integrator               = md ; checked
 dt                       = 0.010 ; should be 20 as per lee and larson
-nsteps                   = 5000 ; vary
+nsteps                   = 10 ; vary
 ;nsteps                   = 60
 ;define                   = -DPOSRES ; vary as per need
 

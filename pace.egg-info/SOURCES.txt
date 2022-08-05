@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+pace.egg-info/PKG-INFO
+pace.egg-info/SOURCES.txt
+pace.egg-info/dependency_links.txt
+pace.egg-info/requires.txt
+pace.egg-info/top_level.txt
+pace.egg-info/zip-safe
+src/__init__.py
+src/candidate.py
+src/candidate_manager.py
+src/pace2.py
+tests/__init__.py
+tests/test_candidate.py
