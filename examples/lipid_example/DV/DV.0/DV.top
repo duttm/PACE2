@@ -3,21 +3,23 @@
 
 [ system ]
 ; name
-Bicelle
+3000 lipid bilayer
 
 [ molecules ]
 ; name        number
 
-DEN           162
-DPPC          2877
-W             1564
-W             13447
-W           15120
-Cl               1296
-W            10876
-W            23433
-W            8288
-W             916589
+DEN           2
+DPPC          3037
+W            4988
+W            11377
+W           15494
+Cl               128
+W             17985
+W             13411
+W             10878
+W             10309
+W             14314
+W             895996
 
 
 

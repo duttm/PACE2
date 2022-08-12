@@ -11,8 +11,11 @@
     "md_args"           : "mdrun -s sys.tpr -deffnm sys -c outcrd.gro",
     "an_pre_exec"       : "echo 'pass -- analysis pre-exec'",
     "an_executable"     : "/home/abanerjee/ve-entk/bin/python3",
-    "an_args"           : "/home/abanerjee/Desktop/entk_temp/8_4_2022/PACE2/examples/lipid_example/Kmeans_PACE.py DV.gro 11",
-    "chead_files"       : "DV.mdp DV.top DV.itp DV.gro martini_v2.2.itp"
+    "an_args"           : "/home/abanerjee/Desktop/entk_temp/8_4_2022/PACE2/examples/dummy_example/force_outcome.py 1",
+    "chead_files"       : "DV.mdp DV.top DV.itp DV.gro martini_v2.2.itp",
+    "md_binary"         : "sys.tpr",
+    "structure_in"     :  "DV.gro",
+    "structure_out"     : "outcrd.gro"
 }
 
 
