@@ -1,0 +1,17 @@
+#include "martini_v2.2.itp"  
+#include "FNF.itp"
+#include "FF.itp"
+;05/09/2016
+
+
+[ system ]
+; name
+FF-FNF
+
+[ molecules ]
+; name  number
+
+FF	400
+FNF     100
+WF	2700
+W       19611
