@@ -1,6 +1,6 @@
 {
     "basename"          : "DV",
-    "candidates"        : 2,
+    "candidates"        : 1,
     "cycle_max"         : 1,
     "pipeline_cores"    : 1,
     "pre_md_pre_exec"   : "echo 'pass -- pre-md pre-exec'",
@@ -10,8 +10,12 @@
     "md_executable"     : "gmx",
     "md_args"           : "mdrun -s sys.tpr -deffnm sys -c outcrd.gro",
     "an_pre_exec"       : "echo 'pass -- analysis pre-exec'",
-    "an_executable"     : "/home/abanerjee/ve-entk/bin/python3",
-    "an_args"           : "/home/abanerjee/Desktop/entk_temp/7_21_2022/PACE2/examples/lipid_example/Kmeans_PACE.py DV.gro 11"
+    "an_executable"     : "python",
+    "an_args"           : "/path/to/PACE2/examples/dummy_example/force_outcome.py 1",
+    "chead_files"       : "DV.mdp DV.top DV.itp DV.gro martini_v2.2.itp",
+    "md_binary"         : "sys.tpr",
+    "structure_in"     :  "DV.gro",
+    "structure_out"     : "outcrd.gro"
 }
 
 

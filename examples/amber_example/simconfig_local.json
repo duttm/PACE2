@@ -1,0 +1,21 @@
+{
+    "basename"          : "DV",
+    "candidates"        : 1,
+    "cycle_max"         : 1,
+    "pipeline_cores"    : 1,
+    "pre_md_pre_exec"   : "echo 'pass -- pre-md pre-exec'",
+    "pre_md_executable" : "sander",
+    "pre_md_args"       : "-i min.in -o 6pti.min1.out -c prmcrd -r 6pti.min1.xyz",
+    "md_pre_exec"       : "echo 'pass -- md pre-exec'",
+    "md_executable"     : "echo 'pass -- md exec'",
+    "md_args"           : "echo 'pass -- md args'",
+    "an_pre_exec"       : "echo 'pass -- analysis pre-exec'",
+    "an_executable"     : "python",
+    "an_args"           : "/path/to/PACE2/examples/dummy_example/force_outcome.py 1",
+    "chead_files"       : "min.in prmcrd prmtop",
+    "md_binary"         : "6pti.min1.xyz",
+    "structure_in"     :  "prmcrd",
+    "structure_out"     : "6pti.min1.xyz"
+}
+
+

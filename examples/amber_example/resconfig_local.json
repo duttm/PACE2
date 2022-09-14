@@ -1,0 +1,5 @@
+{
+	"resource"      : "local.localhost",
+	"walltime"      : 300,
+	"cpus"          : 1
+}

@@ -45,7 +45,12 @@ def read_jsons() -> Tuple[Dict, Dict]:
     sim_dict['an_executable']     = simdata["an_executable"]
     sim_dict['an_args']           = simdata["an_args"].split()
 
-
+    ## add-on for agnosticity
+    
+    sim_dict['chead_files']       = simdata["chead_files"].split()
+    sim_dict['md_binary']     = simdata["md_binary"]
+    sim_dict['structure_in']     = simdata["structure_in"]
+    sim_dict['structure_out']     = simdata["structure_out"]
 
 
     sim_dict['pilot_cores'] = resdata["cpus"]

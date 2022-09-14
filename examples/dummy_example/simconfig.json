@@ -1,11 +1,19 @@
-{    
-    "basename"       : "FF",
-    "candidates"     : 2, 
-    "pipeline_cores" : 1, 
-    "md_executable"  : "/usr/bin/gmx",  
-    "md_pre_exec"    : "grompp ", 
-    "md_args"        : "mdrun", 
-    "an_executable"  : "python",
-    "an_args"        : "/home/scm177/RCT/pace/examples/dummy_example/force_outcome.py 0",
-    "cycle_max"      : 3
+{
+    "basename"          : "DUMMY",
+    "candidates"        : 1,
+    "cycle_max"         : 3,
+    "pipeline_cores"    : 1,
+    "pre_md_pre_exec"   : "echo 'pass -- pre-md pre-exec'",
+    "pre_md_executable" : "cp",
+    "pre_md_args"       : "-a pre-md-input.txt pre-md-output.txt",
+    "md_pre_exec"       : "echo 'pass -- md pre-exec'",
+    "md_executable"     : "cp",
+    "md_args"           : "-a pre-md-output.txt output-structure.txt",
+    "an_pre_exec"       : "echo 'pass -- analysis pre-exec'",
+    "an_executable"     : "/usr/local/bin/python3.9",
+    "an_args"           : "/$HOME/PACE2/examples/dummy_example/force_outcome.py 0",
+    "chead_files"       : "pre-md-input.txt input-structure.txt",
+    "md_binary"         : "pre-md-output.txt",
+    "structure_in"     :  "input-structure.txt",
+    "structure_out"     : "output-structure.txt"
 }

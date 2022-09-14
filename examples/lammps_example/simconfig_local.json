@@ -1,0 +1,21 @@
+{
+    "basename"          : "DV",
+    "candidates"        : 1,
+    "cycle_max"         : 1,
+    "pipeline_cores"    : 1,
+    "pre_md_pre_exec"   : "echo 'pass -- pre-md pre-exec'",
+    "pre_md_executable" : "/usr/bin/lammps",
+    "pre_md_args"       : "-in diffusing_particle.lam",
+    "md_pre_exec"       : "echo 'pass -- md pre-exec'",
+    "md_executable"     : "echo 'pass -- md exec'",
+    "md_args"           : "echo 'pass -- md args'",
+    "an_pre_exec"       : "echo 'pass -- analysis pre-exec'",
+    "an_executable"     : "/home/abanerjee/ve-entk/bin/python3",
+    "an_args"           : "/home/abanerjee/Desktop/entk_temp/8_4_2022/PACE2/examples/dummy_example/force_outcome.py 1",
+    "chead_files"       : "diffusing_particle.lam initial_configuration.txt",
+    "md_binary"         : "final.data",
+    "structure_in"     :  "initial_configuration.txt",
+    "structure_out"     : "final.data"
+}
+
+
