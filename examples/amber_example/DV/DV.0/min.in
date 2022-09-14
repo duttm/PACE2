@@ -1,0 +1,4 @@
+# 200 steps of minimization, generalized Born solvent model
+&cntrl
+maxcyc=200, imin=1, cut=12.0, igb=1, ntb=0, ntpr=10,
+/
