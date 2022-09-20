@@ -1,0 +1,21 @@
+{
+    "basename"          : "DV",
+    "candidates"        : 1,
+    "cycle_max"         : 1,
+    "pipeline_cores"    : 1,
+    "pre_md_pre_exec"   : "module load gromacs/2018",
+    "pre_md_executable" : "gmx_mpi grompp",
+    "pre_md_args"       : "-f DV.mdp -c DV.gro -o sys.tpr -p DV.top",
+    "md_pre_exec"       : "module load gromacs/2018",
+    "md_executable"     : "gmx_mpi mdrun",
+    "md_args"           : "-ntomp 1 -s sys.tpr -deffnm sys -c outcrd.gro -v",
+    "an_pre_exec"       : "module load gromacs/2018",
+    "an_executable"     : "/path/to/FILES/launch.bash",
+    "an_args"           : "' '",
+    "chead_files"       : "DV.mdp DV.top DV.itp DV.gro martini_v2.2.itp",
+    "md_binary"         : "sys.tpr",
+    "structure_in"     :  "DV.gro",
+    "structure_out"     : "outcrd.gro"
+}
+
+
