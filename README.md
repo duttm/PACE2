@@ -1,6 +1,6 @@
 # PACE<sup>2</sup>: Pipeline for Automating Compliance-based Elimination and Extension
 
-PACE<sup>2</sup> (sometimes also written PACE2) is a framework written in the RADICAL-EnTK API (https://github.com/radical-cybertools/radical.entk). PACE<sup>2</sup> has been designed to create and run various flavours of simulation-analysis loops, convergence checks and output-targeted simulations. 
+PACE<sup>2</sup> (sometimes also written PACE2) is a framework written in the RADICAL-EnTK API (EnTK) (https://github.com/radical-cybertools/radical.entk). PACE<sup>2</sup> has been designed to create and run various flavours of simulation-analysis loops, convergence checks and output-targeted simulations. 
 
 Candidate systems are fed to PACE<sup>2</sup> as directories containing all inputs needed for an MD run. PACE<sup>2</sup> itself invokes the MD engine to run the simulations. After the simulations complete, PACE<sup>2</sup> calls a user-defined script to check compliance of each MD system. If a system meets the user-specified compliance requirements, the system is extended within the pipeline where it can continue processing. If the compliance requirements are not met, the system is eliminated and its resources are returned to the pool so that they can be reassigned to a different system. In this way PACE<sup>2</sup> manages resources to adapt to the needs of the user without needing a user in the loop.
 
@@ -23,9 +23,11 @@ cd PACE2/
 pip install -e .
 ```
 
-### RabbitMQ
+### Other runtime considerations
 
-PACE<sup>2</sup> uses the RADICAL Cybertools (RCT) suite of tools. RCT depends on a program called RabbitMQ, a message broker service. See the Support section below if you have trouble getting RMQ set up.  
+EnTK is installed automatically during the PACE<sup>2</sup> installation process, but EnTK still has some dependencies which must be configured. We recommend reviewing the EnTK Github documentation.
+
+PACE<sup>2</sup> is tested targeting execution on remote hpc clusters using SSH authentication, using the RCT Radial-Pilot (RP) system (https://github.com/radical-cybertools/radical.pilot). RP is installed automatically during the PACE<sup>2</sup> installation process.
 
 ## Usage
 
