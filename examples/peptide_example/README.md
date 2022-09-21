@@ -4,8 +4,6 @@ This example consists of the peptide assembly system consisting of two Candidate
 
 In the interim, this example uses the `force_outcome.py` method (see `examples/dummy_example` directory) to demonstrate the extension and elimination capabilities of the framework. 
 
-The `hpc` directory consists of resource and simulation config files for HPC resources, however these require user privileges on those resources to run.  
-
 ## Running the peptide example
 
 `pace2.py simconfig_local.json resconfig_local.json`
