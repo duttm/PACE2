@@ -1,10 +1,10 @@
 ## Amber Example
 
-Here, we test a short energy minimization simulation of a protein. We use the amber MD engine for this task.
+Here, we test a short energy minimization simulation of a protein using the Amber MD engine.
 
-We have used 3 input files for this workflow: min.in (MD input parameters) , prmtop and prmcrd (coordinate and topology files). These files are stored in `amber_example/DV/DV.0/`
+We have used 3 input files for this workflow: min.in (MD input parameters), prmtop, and prmcrd (coordinate and topology files). These files are stored in `amber_example/DV/DV.0/`
 
-The PACE workflow controls the simulation with the help of `simconfig_local.json` (input files, executables, etc) and `resconfig_local.json` (walltime and  target resource for running the simulation)
+The PACE<sup>2</sup> workflow controls the simulation with the help of `simconfig_local.json` (input files, executables, etc) and `resconfig_local.json` (walltime and  target resource for running the simulation).
 
 Here are the relevant keys (from `simconfig_local.json`) for this example:
 
@@ -18,6 +18,6 @@ Here are the relevant keys (from `simconfig_local.json`) for this example:
     "structure_out"     : "6pti.min1.xyz" ## simulation output file (amber restart file)
 ```
 
-We note that PACE has been designed for separate pre-md and md stages. This is applicable for MD engines such as GROMACS. However, the amber MD engine does
-not require 2 separate stages to run an MD simulation. Hence, we have run the amber simulation in the pre-md stage, and the md-stage is left empty. In future versions 
-of PACE, we will incorporate a single stage MD simulation feature. 
+We note that PACE<sup>2</sup> has been designed for separate pre-MD and MD stages. This is applicable for MD engines such as GROMACS. However, the Amber MD engine does
+not require two separate stages to run an MD simulation. In this implementation, the Amber simulation runs in the pre-MD stage, and the MD stage is left empty. Future versions 
+of PACE<sup>2</sup> will incorporate a single stage MD simulation feature. 
