@@ -89,7 +89,7 @@ Srinivas Mushnoori srinivas.mushnoori@gmail.com
 
 Akash Banerjee akashbanerji@gmail.com
 
-Mason Hooten mason.hooten@gmail.com
+Mason Hooten mason.simulation@gmail.com
 
 ## Acknowledgements
 
