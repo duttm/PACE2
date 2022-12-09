@@ -93,6 +93,6 @@ Mason Hooten mason.simulation@gmail.com
 
 ## Acknowledgements
 
-The developers gratefully acknowledge financial support from the National Science Foundation CAREER award DMR-1654325, awards OAC-1547580 and DMR-2118860.
+The developers gratefully acknowledge financial support from the National Science Foundation CAREER award DMR-1654325, awards OAC-1547580, OAC-1835449 and DMR-2118860.
 
 Thanks for using PACE<sup>2</sup>!
