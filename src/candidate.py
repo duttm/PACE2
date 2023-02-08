@@ -102,7 +102,9 @@ class Candidate:
         pre_md_task.executable = self.candidate_specifications['pre_md_executable']
         pre_md_task.arguments = self.candidate_specifications['pre_md_args']
         pre_md_task.pre_exec = self.candidate_specifications['pre_md_pre_exec']
-        pre_md_task.cpu_reqs = self.candidate_specifications['pipeline_cores']
+        pre_md_task.cpu_reqs = {'cpu_processes': 1,
+                                'cpu_threads':self.candidate_specifications['pipeline_cores']
+                                }
         if self.cycle_count == 0:
             pre_md_task.upload_input_data = c_head
         else:
@@ -146,7 +148,9 @@ class Candidate:
         md_task.executable = self.candidate_specifications['md_executable']
         md_task.arguments = self.candidate_specifications['md_args']
         md_task.pre_exec = self.candidate_specifications['md_pre_exec']
-        md_task.cpu_reqs = self.candidate_specifications['pipeline_cores']
+        md_task.cpu_reqs = {'cpu_processes': 1,
+                            'cpu_threads':self.candidate_specifications['pipeline_cores']
+                            }
         sysname = self.candidate_specifications['basename'] + "." + str(self.cid)
         
         md_task.link_input_data = ['$Pipline_%s_Stage_%s_Task_%s/%s' % (sysname, "premdstage" + str(self.cycle_count), "premdtask", self.candidate_specifications['md_binary'])]
@@ -171,7 +175,9 @@ class Candidate:
         an.name = 'analysistask'
         an.executable = self.candidate_specifications['an_executable']
         an.pre_exec = self.candidate_specifications['an_pre_exec']
-        an.cpu_reqs = self.candidate_specifications['pipeline_cores']
+        an.cpu_reqs = {'cpu_processes': 1,
+                       'cpu_threads':self.candidate_specifications['pipeline_cores']
+                       }
         an.link_input_data = ['$Pipline_%s_Stage_%s_Task_%s/%s > %s' % (sysname, 'mdstage'+str(self.cycle_count), 'mdtask', self.candidate_specifications['structure_out'], self.candidate_specifications['structure_in'])]
         
         an_args = []
