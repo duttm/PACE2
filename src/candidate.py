@@ -146,7 +146,7 @@ class Candidate:
         md_task.executable = self.candidate_specifications['md_executable']
         md_task.arguments = self.candidate_specifications['md_args']
         md_task.pre_exec = self.candidate_specifications['md_pre_exec']
-        md_task.pre_exec.cpu_reqs = self.candidate_specifications['pipeline_cores']
+        md_task.cpu_reqs = self.candidate_specifications['pipeline_cores']
         sysname = self.candidate_specifications['basename'] + "." + str(self.cid)
         
         md_task.link_input_data = ['$Pipline_%s_Stage_%s_Task_%s/%s' % (sysname, "premdstage" + str(self.cycle_count), "premdtask", self.candidate_specifications['md_binary'])]
