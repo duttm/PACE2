@@ -103,7 +103,9 @@ class Candidate:
         pre_md_task.arguments = self.candidate_specifications['pre_md_args']
         pre_md_task.pre_exec = self.candidate_specifications['pre_md_pre_exec']
         pre_md_task.cpu_reqs = {'cpu_processes': self.candidate_specifications['pipeline_cores'],
-                                'cpu_threads': 1
+                                'cpu_threads': 1,
+                                'cpu_processe_type': 'MPI'],
+                                'thread_type': 'OpenMP'
                                }
         if self.cycle_count == 0:
             pre_md_task.upload_input_data = c_head
@@ -149,7 +151,9 @@ class Candidate:
         md_task.arguments = self.candidate_specifications['md_args']
         md_task.pre_exec = self.candidate_specifications['md_pre_exec']
         md_task.cpu_reqs = {'cpu_processes': self.candidate_specifications['pipeline_cores'],
-                            'cpu_threads': 1
+                            'cpu_threads': 1,
+                            'cpu_processe_type': 'MPI'],
+                            'thread_type': 'OpenMP'
                            }
         sysname = self.candidate_specifications['basename'] + "." + str(self.cid)
         
@@ -176,7 +180,9 @@ class Candidate:
         an.executable = self.candidate_specifications['an_executable']
         an.pre_exec = self.candidate_specifications['an_pre_exec']
         an.cpu_reqs = {'cpu_processes': self.candidate_specifications['pipeline_cores'],
-                       'cpu_threads': 1
+                       'cpu_threads': 1,
+                       'cpu_processe_type': 'MPI'],
+                       'thread_type': 'OpenMP'
                       }
         an.link_input_data = ['$Pipline_%s_Stage_%s_Task_%s/%s > %s' % (sysname, 'mdstage'+str(self.cycle_count), 'mdtask', self.candidate_specifications['structure_out'], self.candidate_specifications['structure_in'])]
         
