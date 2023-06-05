@@ -2,7 +2,7 @@
 
 This example consists of the peptide assembly system consisting of two Candidates. In the analysis phase, a Convolutional Neural Network (CNN) image classification model is used. Code for the CNN model is included in this repository. Details of the original classifier code including authorship are below. See the Setup section there for additional Python requirements.
 
-This example should run locally out of the box in a Python3.8+ environment. Config file templates are included here for execution on local host and remote HPC resources. Scripts associated with the CNN model have hardcoded filepaths in some places, so those should also be updated before running the example.
+This example should run locally out of the box in a Python3.8+ environment. Details of recently tested environment are included in `requirements.txt`. Config file templates are included here for execution on local host and remote HPC resources. Scripts associated with the CNN model have hardcoded filepaths in some places, so those should also be updated before running the example.
 
 With a suitable Python environment, and after verifying filepaths are updated in all scripts, run the peptide example:
 ```
