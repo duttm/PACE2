@@ -11,7 +11,7 @@ FF-FNF
 [ molecules ]
 ; name  number
 
-FF	400
-FNF     100
-WF	2700
-W       19611
+FF	500
+;FNF     0
+WF	1400
+W       9622

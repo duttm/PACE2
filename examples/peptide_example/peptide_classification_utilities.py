@@ -4,7 +4,7 @@ import glob
 import random
 import GroConverter
 import matplotlib.pyplot as plt
-import imageio
+import imageio.v2 as imageio
 import os
 
 from mpl_toolkits.mplot3d import Axes3D
@@ -95,7 +95,7 @@ def create_image(gro_file: str, predicting: bool) -> str:
     if predicting:
         image_path = os.path.join('images', 'predicting', 'test_image')
         if not os.path.exists('images/predicting'):
-            os.mkdir('images/predicting')
+            os.makedirs('images/predicting')
         fig.savefig(image_path)
     else:
         image_name_components = gro_file.split('/')
@@ -261,7 +261,7 @@ def generate_new_model(label_map: Dict) -> None:
     files = glob.glob(glob_path)
     for myFile in files:
         print('Loading ', myFile)
-        image = imageio.imread(myFile, as_gray=False, pilmode="RGB")
+        image = imageio.imread(myFile, pilmode="RGB")
         images.append(image)
         label = myFile.split('/images/')[-1].split('_')[0][:-1]
         print(label)
@@ -293,7 +293,7 @@ def generate_new_model(label_map: Dict) -> None:
                   metrics=['accuracy'])
 
     # Fit model
-    history = model.fit(train_images, train_labels, epochs=5,
+    model.fit(train_images, train_labels, epochs=5,
                         validation_data=(test_images, test_labels))
 
     # Evaluate model

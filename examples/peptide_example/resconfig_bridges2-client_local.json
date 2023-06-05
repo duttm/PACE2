@@ -1,0 +1,9 @@
+{
+    "resource" : "access.bridges2",
+    "walltime" : 2820,
+    "cpus"     : 128,
+    "gpus_per_node" : 0,
+    "access_schema" : "local",
+    "queue" : "RM",
+    "project" : "xxxxxxxxx"
+}

@@ -1,5 +1,9 @@
 {
-	"resource"      : "local.localhost",
-	"walltime"      : 30,
-	"cpus"          : 2
+    "resource" : "local.localhost",
+    "walltime" : 2820,
+    "cpus"     : 8,
+    "gpus_per_node" : 0,
+    "access_schema" : "local",
+    "queue" : "not-used",
+    "project" : "not-used"
 }
