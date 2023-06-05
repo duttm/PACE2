@@ -4,7 +4,14 @@ PACE<sup>2</sup> (sometimes also written PACE2) is a framework written in the RA
 
 Candidate systems are fed to PACE<sup>2</sup> as directories containing all inputs needed for an MD run. PACE<sup>2</sup> itself invokes the MD engine to run the simulations. After the simulations complete, PACE<sup>2</sup> calls a user-defined script to check compliance of each MD system. If a system meets the user-specified compliance requirements, the system is extended within the pipeline where it can continue processing. If the compliance requirements are not met, the system is eliminated and its resources are returned to the pool so that they can be reassigned to a different system. In this way PACE<sup>2</sup> manages resources to adapt to the needs of the user without needing a user in the loop.
 
-See the Examples directory for examples running GROMACS and using custom analysis scripts.
+See the `examples/` directory for several example applications of PACE<sup>2</sup>. See the Examples heading below for more details.
+
+## Code overview
+
+PACE<sup>2</sup> consists of 3 files included in the `src/` directory. They are:
+* `pace2.py` : The main driver script.
+* `candidate.py` : Class for the main constituent object in PACE<sup>2</sup>, the Candidate. Business logic is implemented here.
+* `candidate_manager.py` : Execution management interface to EnTK.
 
 ## Installation
 
@@ -43,7 +50,7 @@ The Candidate is the fundamental unit of the PACE<sup>2</sup> adaptivity model. 
 ### Step 2
 Simulation Configuration and Resource Configuration parameters are organized in a pair of JSON files conventionally called simconfig.json and resconfig.json. 
 
-See associated files in the /examples directory. Here is a brief description of keys in each of the config files.
+See associated files in the `examples/` directory. Here is a brief description of keys in each of the config files.
 
 **simconfig.json keys and descriptions** 
 * "basename" : A name for the Candidate Pool. See Step 1 instructions.
@@ -78,6 +85,15 @@ pace2.py simconfig.json resconfig.json
 
 `simconfig.json` is the *simulation configuration* file. This is where simulation parameters are specified.
 `resconfig.json` is the *resource configuration* file. This is where the resource, i.e. localhost/Bridges2/Expanse etc. are specified. 
+
+## Examples
+
+Several demonstrative examples are included in the `examples/` directory:
+* `amber_example` : How to use AmberMD as the simulation engine.
+* `dummy_example` : Force pipeline extension with a script `force_outcome.py`.
+* `lammps_example` : How to use LAMMPS as the simulation engine.
+* `lipid_example` : Tracking lipid vesicle closure. MD with GROMACS, analysis with k-means.
+* `peptide_example` : Classifying aggregates. MD with GROMACS, analysis with CNN image classifier.
 
 ## Issues and Support
 
