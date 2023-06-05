@@ -85,13 +85,6 @@ class Candidate:
         for i in range(len(c_head_extension)):
             c_head.append(c_head_initial + c_head_extension[i])
             ##print(c_head[i])
-        
-#        c_head = [basename + "/" + sysname + "/" + basename + ".gro",
-#                  basename + "/" + sysname + "/" + basename + ".itp",
-#                  basename + "/" + sysname + "/" + basename + ".mdp",
-#                  basename + "/" + sysname + "/" + basename + ".top",
-#                  basename + "/" + sysname + "/" + "martini_v2.2.itp"]
-                        
 
         # Create pre md stage
         pre_md_stage = Stage()
@@ -102,34 +95,25 @@ class Candidate:
         pre_md_task.executable = self.candidate_specifications['pre_md_executable']
         pre_md_task.arguments = self.candidate_specifications['pre_md_args']
         pre_md_task.pre_exec = self.candidate_specifications['pre_md_pre_exec']
-        pre_md_task.cpu_reqs = {'cpu_processes': self.candidate_specifications['pipeline_cores'],
-                                'cpu_threads': 1,
-                                'cpu_process_type': 'MPI',
+        pre_md_task.cpu_reqs = {'cpu_processes': 1,
+                                'cpu_threads': self.candidate_specifications['pipeline_cores'],
+                                #'cpu_process_type': 'MPI',
                                 'thread_type': 'OpenMP'
                                }
         if self.cycle_count == 0:
             pre_md_task.upload_input_data = c_head
         else:
-            # Take the same file names from c_head, no sysname/basename
-            
-            
             c_head_2 = []
             for i in range(len(c_head_extension)):
                 ##print(c_head_extension[i])
                 if c_head_extension[i] != self.candidate_specifications['structure_in']:
-                    c_head_2.append('$Pipline_%s_Stage_%s_Task_%s/%s'% (sysname, 'premdstage0', 'premdtask', c_head_extension[i]))    
-                
-               
-                else:     
+                    c_head_2.append('$Pipline_%s_Stage_%s_Task_%s/%s'% (sysname, 'premdstage0', 'premdtask', c_head_extension[i]))
+
+                else:
                     c_head_2.append('$Pipline_%s_Stage_%s_Task_%s/%s > %s'% (sysname, 'mdstage'+str(self.cycle_count-1), 'mdtask', self.candidate_specifications['structure_out'], self.candidate_specifications['structure_in']))
-                    
-            pre_md_task.link_input_data = c_head_2        
-            
-#            pre_md_task.link_input_data = ['$Pipline_%s_Stage_%s_Task_%s/outcrd.gro > %s.gro' % (sysname, 'mdstage'+str(self.cycle_count-1), 'mdtask', basename),
-#                                           '$Pipline_%s_Stage_%s_Task_%s/%s.itp'              % (sysname, 'premdstage0', 'premdtask', basename),
-#                                           '$Pipline_%s_Stage_%s_Task_%s/%s.mdp'              % (sysname, 'premdstage0', 'premdtask', basename),
-#                                           '$Pipline_%s_Stage_%s_Task_%s/%s.top'              % (sysname, 'premdstage0', 'premdtask', basename),
-#                                           '$Pipline_%s_Stage_%s_Task_%s/martini_v2.2.itp'    % (sysname, 'premdstage0', 'premdtask')]
+
+            pre_md_task.link_input_data = c_head_2
+
         pre_md_stage.add_tasks(pre_md_task)
         # Add pre md stage to pipeline
         self.pipeline.add_stages(pre_md_stage)
@@ -150,9 +134,9 @@ class Candidate:
         md_task.executable = self.candidate_specifications['md_executable']
         md_task.arguments = self.candidate_specifications['md_args']
         md_task.pre_exec = self.candidate_specifications['md_pre_exec']
-        md_task.cpu_reqs = {'cpu_processes': self.candidate_specifications['pipeline_cores'],
-                            'cpu_threads': 1,
-                            'cpu_process_type': 'MPI',
+        md_task.cpu_reqs = {'cpu_processes': 1,
+                            'cpu_threads': self.candidate_specifications['pipeline_cores'],
+                            #'cpu_process_type': 'MPI',
                             'thread_type': 'OpenMP'
                            }
         sysname = self.candidate_specifications['basename'] + "." + str(self.cid)
@@ -179,9 +163,9 @@ class Candidate:
         an.name = 'analysistask'
         an.executable = self.candidate_specifications['an_executable']
         an.pre_exec = self.candidate_specifications['an_pre_exec']
-        an.cpu_reqs = {'cpu_processes': self.candidate_specifications['pipeline_cores'],
-                       'cpu_threads': 1,
-                       'cpu_process_type': 'MPI',
+        an.cpu_reqs = {'cpu_processes': 1,
+                       'cpu_threads': self.candidate_specifications['pipeline_cores'],
+                       #'cpu_process_type': 'MPI',
                        'thread_type': 'OpenMP'
                       }
         an.link_input_data = ['$Pipline_%s_Stage_%s_Task_%s/%s > %s' % (sysname, 'mdstage'+str(self.cycle_count), 'mdtask', self.candidate_specifications['structure_out'], self.candidate_specifications['structure_in'])]
@@ -210,3 +194,4 @@ class Candidate:
         # Add analysis stage to pipeline
         self.pipeline.add_stages(an_stg)
         return an_stg
+
