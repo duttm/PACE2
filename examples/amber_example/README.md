@@ -1,6 +1,6 @@
 ## Amber Example
 
-Here, we test a short energy minimization simulation of a protein using the Amber MD engine.
+Here, we test a short energy minimization simulation of a protein using the Amber MD engine. Please visit http://ambermd.org/ for details on obtaining and using the Amber software.
 
 We have used 3 input files for this workflow: min.in (MD input parameters), prmtop, and prmcrd (coordinate and topology files). These files are stored in `amber_example/DV/DV.0/`
 
