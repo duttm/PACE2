@@ -1,9 +1,8 @@
 {
-    "resource" : "xsede.bridges2",
+    "resource" : "access.bridges2",
     "walltime" : 300,
     "cpus"     : 8,
     "gpus_per_node" : 0,
-    
     "access_schema" : "ssh",
     "queue"         : "RM-shared",
     "project"       : "XXXXXXXXX"
