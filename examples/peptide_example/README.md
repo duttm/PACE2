@@ -1,21 +1,26 @@
 # PACE2 Peptide Example
 
-This example consists of the peptide assembly system consisting of two Candidates. In the analysis phase, a Convolutional Neural Network (CNN) image classification model is used. Code for the CNN model is included in this repository. Details of the original classifier code including authorship are below. See the Setup section there for additional Python requirements.
+This example consists of the peptide assembly system consisting of two Candidates. In the analysis phase, a Convolutional Neural Network (CNN) image classification model is used. Code for the CNN model is included in this repository.
 
-This example should run locally out of the box in a Python3.8+ environment. Details of recently tested environment are included in `requirements.txt`. Config file templates are included here for execution on local host and remote HPC resources. Scripts associated with the CNN model have hardcoded filepaths in some places, so those should also be updated before running the example.
+## Running the example
+1. Details of the original classifier code including authorship are under the `Characterization and Analysis of Peptide Self-Assemblies` header below. See the Setup section there for additional Python requirements, and update your environment accordingly. Details of recently tested environment are included in `requirements.txt` for reference.
 
-With a suitable Python environment, and after verifying filepaths are updated in all scripts, run the peptide example:
+2. Config file templates are included here for execution on local host and remote HPC resources. Modify paths in those files as appropriate for your system. Note the example simconfigs refer to a containerized version of the GROMACS executable (e.g. 'gromacs_container.sif gmx') which can safely be replaced with a path to your GROMACS executable.
+
+3. The main CNN script `peptide_classification_ml.py` has a hardcoded filepath for the model location. Change this to the location of your trained model.
+
+In a suitable Python environment, and after verifying filepaths are updated in all scripts, run the peptide example:
 ```
 pace2.py simconfig_local.json resconfig_local.json
 ```
 
-# Characterization and Analysis of Peptide Self-Assembilies
+# Characterization and Analysis of Peptide Self-Assemblies
 
 Peptide materials have various applications in biotechnology including drug delivery and electronics. Self-assembly of peptides has been shown to form ordered structures such as nanovesicles, nanotubes, and bilayers. With 20 amino acids, phase space for new molecules and thus, ordered structures, is vast. It is important to identify these molecules which yield materials with specific sequence-structure properties. This calls for a computational/ automated approach to peptide self-assembly structure characterization.
 
 This analysis package uses a convolutional neural network-based machine learning approach to classifying peptide systems.
 
-## Running the analysis
+## Running analysis with the CNN code
 
 ### Setup
 
