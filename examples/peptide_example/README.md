@@ -2,6 +2,8 @@
 
 This example consists of the peptide assembly system consisting of two Candidates. In the analysis phase, a Convolutional Neural Network (CNN) image classification model is used. Code for the CNN model is included in this repository.
 
+This example uses the GROMACS MD software. Please visit https://www.gromacs.org/ for details on obtaining and using GROMACS.
+
 ## Running the example
 1. Details of the original classifier code including authorship are under the `Characterization and Analysis of Peptide Self-Assemblies` header below. See the Setup section there for additional Python requirements, and update your environment accordingly. Details of recently tested environment are included in `requirements.txt` for reference.
 
