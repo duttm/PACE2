@@ -293,7 +293,7 @@ def generate_new_model(label_map: Dict) -> None:
                   metrics=['accuracy'])
 
     # Fit model
-    model.fit(train_images, train_labels, epochs=5,
+    model.fit(train_images, train_labels, epochs=10,
                         validation_data=(test_images, test_labels))
 
     # Evaluate model
