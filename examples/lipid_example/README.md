@@ -1,6 +1,8 @@
 # Lipid Example
 
-This example uses PACE<sup>2</sup> to generate lipid-based vesicles. 
+This example uses PACE<sup>2</sup> to generate lipid-based vesicles.
+
+This example uses the GROMACS MD software. Please visit https://www.gromacs.org/ for details on obtaining and using GROMACS.
 
 ## Workflow 
 
