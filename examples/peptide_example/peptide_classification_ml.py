@@ -8,16 +8,17 @@ import tensorflow as tf
 
 from peptide_classification_utilities import create_image, generate_images, generate_new_model
 
+MODEL_PATHNAME='/home/mason/pace2/PACE2/examples/peptide_example/model/trained_cnn_model'
 
 def main():
     label_map = {'vesicle': 0, 'nanotube': 1, 'lamellae': 2, 0: 'vesicle', 1: 'nanotube', 2: 'lamellae'}
 
     # Check if model has already been saved. If not, train a model.
-    if not os.path.exists('/home/mason/pace2/PACE2/examples/peptide_example/model/trained_cnn_model'):
+    if not os.path.exists(MODEL_PATHNAME):
         generate_images()
         print('Training and generating new model.')
         generate_new_model(label_map)
-    model = tf.keras.models.load_model('/home/mason/pace2/PACE2/examples/peptide_example/model/trained_cnn_model')
+    model = tf.keras.models.load_model(MODEL_PATHNAME)
 
     # Predict using the model.
     image_path = create_image(sys.argv[1], True)
