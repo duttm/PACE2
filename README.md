@@ -95,6 +95,8 @@ Several demonstrative examples are included in the `examples/` directory:
 * `lipid_example` : Tracking lipid vesicle closure. MD with GROMACS, analysis with k-means.
 * `peptide_example` : Classifying aggregates. MD with GROMACS, analysis with CNN image classifier.
 
+Note: See README files in the main directory of each example for more details.
+
 ## Issues and Support
 
 If you believe you have found a bug, please open a ticket at https://github.com/duttm/PACE2/issues.
