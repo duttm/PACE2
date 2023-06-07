@@ -95,7 +95,7 @@ Several demonstrative examples are included in the `examples/` directory:
 * `lipid_example` : Tracking lipid vesicle closure. MD with GROMACS, analysis with k-means.
 * `peptide_example` : Classifying aggregates. MD with GROMACS, analysis with CNN image classifier.
 
-Note: See README files in the main directory of each example for more details.
+Note: See README files in the main directory of each example for details including additional environment setup and software requirements. 
 
 ## Issues and Support
 
